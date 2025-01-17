@@ -29,7 +29,3 @@ The answers are located in `cypress/integration/Answers`
 ---
 
 This repo is a fork of the [Next.js Learn Starter](https://github.com/vercel/next-learn-starter/)
-# cypress-realworld-testing-blog
-# cypress-realworld-testing-blog
-# cypress-realworld-testing-blog
-# cypress-realworld-testing-blog
