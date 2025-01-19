@@ -4,7 +4,7 @@ describe("Important Cypress Methods", () => {
     // Then use cy.invoke() to 'slice' the response body by 1.
     // Hint: you will need to use cy.wrap() around the response.body before calling .invoke()
     // https://docs.cypress.io/api/commands/wrap
-
+    cy.request(" /api/posts")
     cy.request("GET", "http://localhost:3000/api/posts").then((response) => {
       cy.wrap(response.body).invoke("slice", 0, 1);
     });

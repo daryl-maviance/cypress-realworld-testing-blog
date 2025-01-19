@@ -11,7 +11,15 @@
 //
 // -- This is a parent command --
 // Cypress.Commands.add('login', (email, password) => { ... })
-//
+
+Cypress.Commands.add("getAllPosts", () => {
+    return cy.request("/api/posts")
+})
+
+Cypress.Commands.add("getFirstPost", () =>{
+    return cy.request("/api/posts").eq(0)
+})
+
 //
 // -- This is a child command --
 // Cypress.Commands.add('drag', { prevSubject: 'element'}, (subject, options) => { ... })
