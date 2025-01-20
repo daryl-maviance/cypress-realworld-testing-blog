@@ -20,6 +20,10 @@ Cypress.Commands.add("getFirstPost", () =>{
     return cy.request("/api/posts").eq(0)
 })
 
+Cypress.Commands.add("getByData", (data) =>{
+    return cy.request(`[data-test='${data}']`).eq(0)
+})
+
 //
 // -- This is a child command --
 // Cypress.Commands.add('drag', { prevSubject: 'element'}, (subject, options) => { ... })

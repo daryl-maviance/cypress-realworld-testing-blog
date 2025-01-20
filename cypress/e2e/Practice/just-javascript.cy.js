@@ -1,6 +1,7 @@
 const { _ } = Cypress;
 import { format, parseISO } from "date-fns";
 
+
 describe("Cypress is just JavaScript", () => {
   it("uses _.each() from lodash to make sure the titles from the posts api are displayed correctly on the home page", () => {
     // Use _.each() from lodash to iterate over the posts inside of response.body
@@ -18,6 +19,9 @@ describe("Cypress is just JavaScript", () => {
         return posts.sort(
           (a, b) => new Date(b.date).valueOf() - new Date(a.date).valueOf()
         );
+        _.each(sortedPosts(response.body), (post, index) => {
+          cy.getByData("posts-list").its(index).find("a").should("have.text", post.title);
+        })
       };
     });
   });
@@ -40,6 +44,9 @@ describe("Cypress is just JavaScript", () => {
         return posts.sort(
           (a, b) => new Date(b.date).valueOf() - new Date(a.date).valueOf()
         );
+        _.each(sortedPosts(response.body), (post, index) => {
+          cy.getByData("posts-list").its(index).find("time").should("have.text", format(parseISO(post.date)));
+        })
       };
     });
   });
